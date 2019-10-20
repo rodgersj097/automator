@@ -1,0 +1,22 @@
+body {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #00B7FF;
+}
+
+#draggable {
+    width: auto;
+}
+
+#containmentWrapper {
+    border: 2px solid #ccc;
+    padding: 100px;
+}
+
+.wrapper {
+    position: absolute;
+    padding: 25px;
+    background-color: blue;
+}

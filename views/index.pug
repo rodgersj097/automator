@@ -1,0 +1,37 @@
+extends layout
+
+mixin button
+  div.ButtonWrapper#draggable
+      div
+          button.uk-button.draggableButton Button
+        
+mixin search  
+  div.wrapper
+    form.uk-search.uk-search-default.search
+              input.uk-search-input(type="search" placeholder="Website url")
+     
+mixin downloadType  
+  div.wrapper
+   button.uk-button.uk-button-default.downloadType(type="button") Download Type: 
+          .uk-width-large(uk-dropdown="mode: click")
+            .uk-dropdown-grid(class="uk-child-width-1-2@m" uk-grid="")
+              div
+                ul.uk-nav.uk-dropdown-nav.downloadType
+                  li
+                    a CSV
+                  li
+                    a Item
+                  li
+                    a Item
+                  li
+                    a Item
+block content
+  .uk-container 
+    h1 Welcome to Automator
+    p.uk-text-lead Please drag and arrange the steps needed to build the automation 
+  .uk-container.tools.uk-padding
+    a.uk-button.uk-button-default(href="/finalize") Finalize
+  .uk-container 
+    div#containmentWrapper 
+      
+

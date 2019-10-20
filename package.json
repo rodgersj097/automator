@@ -1,0 +1,22 @@
+{
+  "name": "sel",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "@shopify/draggable": "^1.0.0-beta.8",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "draggable": "^4.2.0",
+    "express": "~4.16.1",
+    "git": "^0.1.5",
+    "http-errors": "~1.6.3",
+    "jquery": "^3.4.1",
+    "morgan": "~1.9.1",
+    "pug": "2.0.0-beta11",
+    "socket.io": "^2.3.0"
+  }
+}
