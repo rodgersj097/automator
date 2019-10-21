@@ -14,6 +14,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/finalize', function(req, res, next) {
     eventTracker.sendArrayToFront()
+    
     res.end()
 })
 

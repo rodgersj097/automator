@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var cors = require('cors')
 
 
 var indexRouter = require('./routes/index');
@@ -48,7 +48,23 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
 });
+app.use(cors());
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header( 
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+  });
+  io.origins(cors())
 
-
-
+  io.origins('*:*') 
+  io.origins('origins' ,'http://localhost:3000') 
+  io.origins((origin, callback) => {
+    if (origin !== 'http://localhost:3000') {
+        return callback('origin not allowed', false);
+    }
+    callback(null, true);
+     });
 module.exports = { app: app, server: server };

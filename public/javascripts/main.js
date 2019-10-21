@@ -5,8 +5,8 @@ var dom = document.addEventListener('click', function(e) {
     e.preventDefault()
     var parentType = e.currentTarget.activeElement.localname;
     var eventUrl = e.currentTarget.activeElement.baseURI
-    var targetHref = e.currentTarget.activeElement.href
-    console.log(e.currentTarget)
+    var targetHref = e.target.href
+    console.log(e)
     var buttonText = e.currentTarget.activeElement.innerHTML
     console.log(buttonText)
     var data = {
@@ -21,7 +21,7 @@ var dom = document.addEventListener('click', function(e) {
             data: data,
             contentType: 'application/javascript',
             success: function() {
-                console.log("Success ")
+                console.log("Success")
             },
             error: function(e) {
                 console.log(e)
@@ -31,11 +31,20 @@ var dom = document.addEventListener('click', function(e) {
             }
         })
     }
-    if (targetHref != "/finalize") {
+    if (!targetHref == "/finalize") {
         window.location.href = targetHref
-    } else if (targetHref = "/finalize") {
-        socket.on
-    }
+    } 
+    if (targetHref = "/finalize") {
+        socket.on("addingEle", function(eventArray)
+        {
+               eventArray.forEach(function(event){ 
+                   jQuery('#arrayHook').append(event.html)
+               })
 
+                
+        })  
+            
+    
+}
 
-})
+}) 
