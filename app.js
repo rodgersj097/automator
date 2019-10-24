@@ -11,8 +11,7 @@ var usersRouter = require('./routes/users');
 var bookmarkRouter = require('./routes/bookmark')
 var app = express();
 var server = require("http").Server(app)
-var io = require('socket.io')(server)
-app.io = io
+var io = require('socket.io')(server, { origins: '*:*localhost:*' })
 
 
 // view engine setup
@@ -33,10 +32,7 @@ app.use(function(req, res, next) {
     next(createError(404));
 });
 
-app.use(function(req, next) {
-    req.io = io;
-    next()
-})
+app.set('socketio', io)
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -48,23 +44,15 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
 });
+
+
+/* GET Event page. Used for Ajax */
 app.use(cors());
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
-    res.header( 
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept"
-    );
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
-  });
-  io.origins(cors())
+});
 
-  io.origins('*:*') 
-  io.origins('origins' ,'http://localhost:3000') 
-  io.origins((origin, callback) => {
-    if (origin !== 'http://localhost:3000') {
-        return callback('origin not allowed', false);
-    }
-    callback(null, true);
-     });
-module.exports = { app: app, server: server };
+
+module.exports = { app: app, server: server }

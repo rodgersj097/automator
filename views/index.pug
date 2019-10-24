@@ -2,9 +2,13 @@ extends layout
 
 mixin button
   div.ButtonWrapper#draggable
-      div
+    div#background 
+      ul.uk-list
+        li 
+          p= 1
+        li 
           button.uk-button.draggableButton Button
-        
+          
 mixin search  
   div.wrapper
     form.uk-search.uk-search-default.search
@@ -30,9 +34,11 @@ block content
     h1 Welcome to Automator
     p.uk-text-lead Please drag and arrange the steps needed to build the automation 
   .uk-container.tools.uk-padding
-    a.uk-button.uk-button-default(href="/finalize") Finalize
+    a.uk-button.uk-button-default.loaded(href="/event/load") Load
+    a.uk-button.uk-button-default.clear(href="/event/clear") Clear
+    a.uk-button.uk-button-default.finalize(href="/event/finalized") Finalize
   .uk-container 
-    div#containmentWrapper
-      div#arrayHook 
+    ul#containmentWrapper
       
+          
 

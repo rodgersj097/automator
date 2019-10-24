@@ -12,11 +12,27 @@ a {
 
 #containmentWrapper {
     border: 2px solid #ccc;
-    padding: 100px;
+    padding: 50px;
+    position: absolute;
+    overflow: auto;
+    width: 1260;
+    height: 135;
+}
+
+#containmentWrapper>li {
+    float: left;
+    padding: 10px;
+    list-style: none;
 }
 
 .wrapper {
-    position: absolute;
     padding: 25px;
     background-color: blue;
+}
+
+#background {
+    padding: 20px;
+    background-color: blue;
+    width: 150px;
+    height: 75px;
 }

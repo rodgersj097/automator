@@ -13,29 +13,18 @@ html
 
 block scripts 
     // UIkit JS
+    script(src="/socket.io/socket.io.js")
+    
     script(src="/javascripts/jQuery.js")
     script(src="/javascripts/jquery-ui.js")
+    script(src="/javascripts/main.js")
     script(src="/javascripts/uikit.min.js")
     script(src="/javascripts/uikit-icons.min.js")
-    script(src="/socket.io/socket.io.js")
-    script(src="/javascripts/main.js")
+    
     
     script.
-      $( function(e) {
-        
-        $( "#draggable" ).draggable({cancel:false, 
-        containment: "parent"});
-      } );
-      var button = $('.draggableButton')
-      var search = $('.search')
-      var downloadType = $('.downloadType')
+      var socket = io.connect('localhost:8090/finalize');
 
-      button.click(function(){ 
-        $('.containmentWrapper').add
-      })
-
-      function addButton(){ 
-        var body = new Object()
-        body.id = Math.Floor(Math.Random() * 100)
-        body.html = ""
-      }
+      socket.on('connection', () => {
+          console.log('Successfully connected!');
+      });
